@@ -249,6 +249,17 @@ int main(int argc, char ** argv) {
 		int result = readpicture(conn, argv[2]);
 		if (result != EXIT_SUCCESS)
 			return result;
+	} else if (argc == 3 && strcmp(argv[1], "albumart") == 0) {
+		unsigned char *buf;
+		const long long ret = mpd_run_albumart(conn, argv[2], &buf);
+		if (ret != -1) {
+			FILE *f = fopen("_cover.jpg", "wb");
+			if (f != NULL) {
+				fwrite(buf, sizeof(unsigned char), ret, f);
+				fclose(f);
+			}
+			free(buf);
+		}
 	} else if(argc==2 && strcmp(argv[1],"artists")==0) {
 		struct mpd_pair *pair;
 

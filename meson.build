@@ -154,6 +154,7 @@ libmpdclient = library('mpdclient',
   'src/partition.c',
   'src/cpartition.c',
   'src/binary.c',
+  'src/albumart.c',
   link_depends: [
     'libmpdclient.ld'
   ],
@@ -215,6 +216,7 @@ install_headers(
   'include/mpd/settings.h',
   'include/mpd/message.h',
   'include/mpd/binary.h',
+  'include/mpd/albumart.h',
   join_paths(meson.build_root(), 'version.h'),
   subdir: 'mpd')
 

@@ -469,6 +469,9 @@ global:
 	mpd_send_binarylimit;
 	mpd_run_binarylimit;
 
+	/* mpd/albumart.h */
+	mpd_run_albumart;
+
 local:
 	*;
 };
